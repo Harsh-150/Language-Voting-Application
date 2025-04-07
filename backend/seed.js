@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import "./App.css";
+// backend/seed.js
+const mongoose = require("mongoose");
+const Language = require("./models/Language");
+require("dotenv").config();
 
-const languages = [
+const seedLanguages = [
   {
     name: "JavaScript",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
@@ -95,59 +96,13 @@ const languages = [
   },
 ];
 
-function App() {
-  // const [votes, setVotes] = useState([]);
-  const [languages, setLanguages] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/api/languages")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("Fetched languages:", data); // 👈 Check this in browser console
-        setLanguages(data);
-        // setVotes(Array(data.length).fill(0));
-      })
-      .catch((err) => console.error("Error fetching languages:", err));
-  }, []);
-
-  const handleVote = async (id) => {
-    try {
-      const res = await axios.post(`http://localhost:5000/api/vote/${id}`);
-      setLanguages((langs) =>
-        langs.map((lang) =>
-          lang._id === id ? { ...lang, votes: res.data.votes } : lang
-        )
-      );
-    } catch (err) {
-      console.error("Vote failed:", err);
-    }
-  };
-
-  return (
-    <div className="App">
-      <h1>🔥 Vote for Your Favorite Programming Language</h1>
-      <div className="grid-container">
-        {languages.length > 0 ? (
-          languages.map((lang, index) => (
-            <div key={lang._id} className="card">
-              <img src={lang.icon} alt={`${lang.name} icon`} className="icon" />
-              <h2>{lang.name}</h2>
-              <p>
-                <strong>Programmers:</strong> {lang.programmers}
-              </p>
-              <p>
-                <strong>Year:</strong> {lang.year}
-              </p>
-              <button onClick={() => handleVote(lang._id)}>Vote</button>
-              <p className="votes">Votes: {lang.votes}</p>
-            </div>
-          ))
-        ) : (
-          <p>Loading languages...</p>
-        )}
-      </div>
-    </div>
-  );
-}
-
-export default App;
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(async () => {
+    console.log("MongoDB connected");
+    await Language.deleteMany({});
+    await Language.insertMany(seedLanguages);
+    console.log("Seeded data");
+    mongoose.disconnect();
+  })
+  .catch((err) => console.error("DB connection error:", err));
