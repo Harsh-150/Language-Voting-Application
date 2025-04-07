@@ -3,12 +3,19 @@
   padding: 2rem;
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
+<<<<<<< HEAD
   color: black; /* 👈 Sets default text color to black */
+=======
+>>>>>>> 228721f (Update UI with language icons, grid layout, and extra details)
 }
 
 h1 {
   margin-bottom: 2rem;
+<<<<<<< HEAD
   color: black; /* 👈 Ensures heading is black */
+=======
+  color: #333;
+>>>>>>> 228721f (Update UI with language icons, grid layout, and extra details)
 }
 
 .grid-container {
@@ -16,7 +23,10 @@ h1 {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   padding: 1rem;
+<<<<<<< HEAD
   justify-items: center;
+=======
+>>>>>>> 228721f (Update UI with language icons, grid layout, and extra details)
 }
 
 .card {
@@ -25,11 +35,14 @@ h1 {
   padding: 1rem;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
+<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   color: black; /* 👈 Ensures card text is black */
+=======
+>>>>>>> 228721f (Update UI with language icons, grid layout, and extra details)
 }
 
 .card:hover {
@@ -61,6 +74,7 @@ button:hover {
 .votes {
   margin-top: 0.5rem;
   font-weight: bold;
+<<<<<<< HEAD
   color: black; /* 👈 Vote text in black */
 }
 .grid-container {
@@ -84,4 +98,7 @@ button:hover {
   align-items: center;
   text-align: center;
   color: black;
+=======
+  color: #555;
+>>>>>>> 228721f (Update UI with language icons, grid layout, and extra details)
 }
