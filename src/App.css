@@ -3,46 +3,35 @@
   padding: 2rem;
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
-<<<<<<< HEAD
-  color: black; /* 👈 Sets default text color to black */
-=======
->>>>>>> 228721f (Update UI with language icons, grid layout, and extra details)
+  color: black; /* Sets default text color to black */
 }
 
 h1 {
   margin-bottom: 2rem;
-<<<<<<< HEAD
-  color: black; /* 👈 Ensures heading is black */
-=======
   color: #333;
->>>>>>> 228721f (Update UI with language icons, grid layout, and extra details)
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* Exactly 3 columns */
   gap: 2rem;
   padding: 1rem;
-<<<<<<< HEAD
-  justify-items: center;
-=======
->>>>>>> 228721f (Update UI with language icons, grid layout, and extra details)
+  justify-items: center; /* Center each card in its column */
 }
 
 .card {
+  width: 100%;
+  max-width: 320px;
   background: white;
   border-radius: 12px;
-  padding: 1rem;
+  padding: 1.5rem;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
-<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  color: black; /* 👈 Ensures card text is black */
-=======
->>>>>>> 228721f (Update UI with language icons, grid layout, and extra details)
+  color: black; /* Ensures card text is black */
 }
 
 .card:hover {
@@ -74,31 +63,5 @@ button:hover {
 .votes {
   margin-top: 0.5rem;
   font-weight: bold;
-<<<<<<< HEAD
-  color: black; /* 👈 Vote text in black */
-}
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 👈 Exactly 3 columns */
-  gap: 2rem;
-  padding: 1rem;
-  justify-items: center; /* 👈 Center each card in its column */
-}
-
-.card {
-  width: 100%;            /* 👈 Let it fill its column */
-  max-width: 320px;       /* 👈 Optional: prevent it from being *too* wide */
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
   color: black;
-=======
-  color: #555;
->>>>>>> 228721f (Update UI with language icons, grid layout, and extra details)
 }

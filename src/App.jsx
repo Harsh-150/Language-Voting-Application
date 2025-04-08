@@ -4,7 +4,6 @@ import "./App.css";
 
 const languages = [
   {
-<<<<<<< HEAD
     name: "JavaScript",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
     programmers: "16.4M",
@@ -94,7 +93,7 @@ const languages = [
     programmers: "1.5M+",
     year: 1984,
   },
-=======
+  {
     name: 'JavaScript',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
     programmers: '16.4M',
@@ -136,20 +135,17 @@ const languages = [
     programmers: '4.1M',
     year: 2012,
   },
->>>>>>> 228721f (Update UI with language icons, grid layout, and extra details)
 ];
 
 function App() {
-  // const [votes, setVotes] = useState([]);
   const [languages, setLanguages] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:5000/api/languages")
       .then((res) => res.json())
       .then((data) => {
-        console.log("Fetched languages:", data); // 👈 Check this in browser console
+        console.log("Fetched languages:", data);
         setLanguages(data);
-        // setVotes(Array(data.length).fill(0));
       })
       .catch((err) => console.error("Error fetching languages:", err));
   }, []);
@@ -171,9 +167,8 @@ function App() {
     <div className="App">
       <h1>🔥 Vote for Your Favorite Programming Language</h1>
       <div className="grid-container">
-<<<<<<< HEAD
         {languages.length > 0 ? (
-          languages.map((lang, index) => (
+          languages.map((lang) => (
             <div key={lang._id} className="card">
               <img src={lang.icon} alt={`${lang.name} icon`} className="icon" />
               <h2>{lang.name}</h2>
@@ -190,18 +185,6 @@ function App() {
         ) : (
           <p>Loading languages...</p>
         )}
-=======
-        {languages.map((lang, index) => (
-          <div key={lang.name} className="card">
-            <img src={lang.icon} alt={`${lang.name} icon`} className="icon" />
-            <h2>{lang.name}</h2>
-            <p><strong>Programmers:</strong> {lang.programmers}</p>
-            <p><strong>Year:</strong> {lang.year}</p>
-            <button onClick={() => handleVote(index)}>Vote</button>
-            <p className="votes">Votes: {votes[index]}</p>
-          </div>
-        ))}
->>>>>>> 228721f (Update UI with language icons, grid layout, and extra details)
       </div>
     </div>
   );
